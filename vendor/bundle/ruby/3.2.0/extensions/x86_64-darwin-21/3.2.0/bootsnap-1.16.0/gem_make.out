@@ -1,0 +1,19 @@
+current directory: /Users/momoikita/ruby/rails/fjord-books_app-2023/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+/Users/momoikita/.rbenv/versions/3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/momoikita/ruby/rails/fjord-books_app-2023/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240901-1825-tx8qzn sitelibdir\=./.gem.20240901-1825-tx8qzn clean
+
+current directory: /Users/momoikita/ruby/rails/fjord-books_app-2023/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240901-1825-tx8qzn sitelibdir\=./.gem.20240901-1825-tx8qzn
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/momoikita/ruby/rails/fjord-books_app-2023/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240901-1825-tx8qzn sitelibdir\=./.gem.20240901-1825-tx8qzn install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20240901-1825-tx8qzn/bootsnap
+
+current directory: /Users/momoikita/ruby/rails/fjord-books_app-2023/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240901-1825-tx8qzn sitelibdir\=./.gem.20240901-1825-tx8qzn clean
