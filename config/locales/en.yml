@@ -226,6 +226,22 @@ en:
         memo: Memo  #g
         picture: Picture  #g
         title: Title  #g
+
+  books:
+    index:
+      title: Title
+      show this book: Show this book
+      new book: New book
+    new:
+      title: New book
+    edit:
+      title: Edit the book
+      show this book: Show this book
+      back to books: Back to books
+    show:
+      destroy this book: Destroy this book
+      edit this book: Edit this book
+      back to books: Back to books
   
   controllers:
     books_controller:
