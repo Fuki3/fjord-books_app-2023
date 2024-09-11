@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= t('books.index.title') %></h1>
+<h1><%= t('books.index.title', name: Book.model_name.human) %></h1>
 
 <div id="books" class="index-items">
   <% @books.each do |book| %>

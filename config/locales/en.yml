@@ -229,19 +229,19 @@ en:
 
   books:
     index:
-      title: Title
-      show_this_book: Show this book
-      new_book: New book
+      title: '%{name}'
+      show_this_book: Show
+      new_book: Create new one
     new:
-      title: New book
+      title: Create new one
     edit:
-      title: Edit the book
-      show_this_book: Show this book
-      back_to_books: Back to books
+      title: Edit
+      show_this_book: Show
+      back_to_books: 'Back to %{name}'
     show:
-      destroy_this_book: Destroy this book
-      edit_this_book: Edit this book
-      back_to_books: Back to books
+      destroy_this_book: Destroy
+      edit_this_book: Edit
+      back_to_books: 'Back to %{name}'
   
   controllers:
     books_controller:
