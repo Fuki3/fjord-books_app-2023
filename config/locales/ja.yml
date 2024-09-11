@@ -196,18 +196,18 @@ ja:
   books:
     index:
       title: 書籍一覧
-      show this book: 詳細を表示
-      new book: 新規作成
+      show_this_book: 詳細を表示
+      new_book: 新規作成
     new:
       title: 新規作成
     edit:
       title: 編集
-      show this book: 編集せずに戻る
-      back to books: 書籍一覧に戻る
+      show_this_book: 編集せずに戻る
+      back_to_books: 書籍一覧に戻る
     show:
-      destroy this book: 削除
-      edit this book: 編集
-      back to books: 書籍一覧に戻る
+      destroy_this_book: 削除
+      edit_this_book: 編集
+      back_to_books: 書籍一覧に戻る
 
   controllers:
     books_controller:
