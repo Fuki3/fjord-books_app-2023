@@ -227,24 +227,25 @@ en:
         picture: Picture  #g
         title: Title  #g
 
-  books:
+  model:
     index:
       title: '%{name}'
-      show_this_book: Show
-      new_book: Create new one
+      show: Show
+      create: Create new one
     new:
       title: Create new one
+      back_to_list: '%{name}一覧に戻る'
     edit:
       title: Edit
-      show_this_book: Show
-      back_to_books: 'Back to %{name}'
+      cancel: Show
+      back_to_list: 'Back to %{name}'
     show:
-      destroy_this_book: Destroy
-      edit_this_book: Edit
-      back_to_books: 'Back to %{name}'
+      destroy: Destroy
+      edit: Edit
+      back_to_list: 'Back to %{name}'
   
   controllers:
-    books_controller:
-      created: Book was successfully created.
-      updated: Book was successfully updated.
-      destroyed: Book was successfully destroyed.
+    controller:
+      created: '%{name} was successfully created.'
+      updated: '%{name} was successfully updated.'
+      destroyed: '%{name} was successfully destroyed.'

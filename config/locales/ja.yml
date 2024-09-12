@@ -193,24 +193,25 @@ ja:
         picture: 写真  #g
         title: タイトル  #g
   
-  books:
+  model:
     index:
       title: '%{name}一覧'
-      show_this_book: 詳細を表示
-      new_book: 新規作成
+      show: 詳細を表示
+      create: 新規作成
     new:
       title: 新規作成
+      back_to_list: '%{name}一覧に戻る'
     edit:
       title: 編集
-      show_this_book: 編集せずに戻る
-      back_to_books: '%{name}一覧に戻る'
+      cancel: 編集せずに戻る
+      back_to_list: '%{name}一覧に戻る'
     show:
-      destroy_this_book: 削除
-      edit_this_book: 編集
-      back_to_books: '%{name}一覧に戻る'
+      destroy: 削除
+      edit: 編集
+      back_to_list: '%{name}一覧に戻る'
 
   controllers:
-    books_controller:
-      created: 新規作成しました。
-      updated: 編集が完了しました。
-      destroyed: 削除しました。
+    controller:
+      created: '%{name}を新規作成しました。'
+      updated: '%{name}の編集が完了しました。'
+      destroyed: '%{name}を削除しました。'
