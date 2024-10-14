@@ -1,0 +1,16 @@
+<% provide(:title, 'All users') %>
+<h1><%= t('views.common.title_index', name: i18n_pluralize(User.model_name.human)) %></h1>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, user %>
+    </li>
+  <% end %>
+</ul>
+
+<%= paginate @users %>
+
+<nav class="page-nav">
+  <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>
+</nav>
