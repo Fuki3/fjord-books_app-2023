@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_30_201854) do
     t.string "address_building"
     t.string "name", limit: 100, default: ""
     t.string "self_introduction", limit: 500
-    t.integer "postcode"
+    t.string "postcode"
     t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
