@@ -1,0 +1,7 @@
+<% provide(:title, @user.name) %>
+<h1><%= t('devise.layouts.application.my_page') %>: (<%= @user.name %>)</h1>
+<p><%= t('devise.layouts.application.postcode') %>: <%= @user.postcode %></p>
+<p><%= t('devise.layouts.application.address') %>: <%= @user.address %></p>
+<p><%= t('devise.layouts.application.email') %>: <%= @user.email %></p>
+<p><%= t('devise.layouts.application.self_introduction') %>: <%= @user.self_introduction %></p>
+<%= link_to t('devise.layouts.application.back'), :back %>
