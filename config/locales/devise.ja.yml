@@ -101,7 +101,7 @@ ja:
         update: 更新
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
         name: 名前
-        self_introduction: 自己紹介
+        introduction: 自己紹介
         postcode: 郵便番号
         address: 住所
         back: 戻る
@@ -150,7 +150,7 @@ ja:
         postcode: 郵便番号
         address: 住所
         email: Eメール
-        self_introduction: 自己紹介
+        introduction: 自己紹介
         back: 戻る
   errors:
     messages:
