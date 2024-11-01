@@ -106,7 +106,6 @@ ja:
         address: 住所
         back: 戻る
         minimum_password_length: 文字以上
-        are_you_sure: 本当によろしいですか？
       new:
         sign_up: アカウント登録
       signed_up: アカウント登録が完了しました。
