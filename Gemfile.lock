@@ -174,7 +174,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
-    mini_magick (4.12.0)
+    mini_magick (4.13.2)
     mini_mime (1.1.2)
     mini_portile2 (2.8.4)
     minitest (5.19.0)
@@ -321,6 +321,7 @@ DEPENDENCIES
   erb_lint
   faker
   i18n_generators
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   kaminari
