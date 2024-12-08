@@ -1,0 +1,11 @@
+<%= render @report %>
+
+<div>
+  <% if current_user.id == @report.user_id %>
+  <%= link_to t('views.common.edit', name: t('activerecord.models.reports')), edit_report_path(@report) %> |
+  <% end %>
+  <%= link_to t('views.common.back', name: t('activerecord.models.reports')), reports_path %>
+  <% if current_user.id == @report.user_id %>
+  <%= button_to t('views.common.destroy', name: t('activerecord.models.reports')), @report, method: :delete %>
+  <% end %>
+</div>

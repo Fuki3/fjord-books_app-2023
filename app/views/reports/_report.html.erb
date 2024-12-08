@@ -1,0 +1,23 @@
+<div id="<%= dom_id report %>">
+
+  <p>
+    <strong><%= t 'activerecord.attributes.reports.name' %>:</strong>
+    <%= User.find_by(id: report.user_id).name %>
+  </p>
+
+  <p>
+    <strong><%= t 'activerecord.attributes.reports.date' %>:</strong>
+    <%= l report.created_at %>
+  </p>
+
+  <p>
+    <strong><%= t 'activerecord.attributes.reports.title' %>:</strong>
+    <%= report.title %>
+  </p>
+
+  <p>
+    <strong><%= t 'activerecord.attributes.reports.memo' %>:</strong>
+    <%= report.memo %>
+  </p>
+
+</div>
