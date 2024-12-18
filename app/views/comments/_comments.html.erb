@@ -1,0 +1,29 @@
+<div class="comments-container">
+<p>
+<%= t(('views.common.title_index'), name: t('activerecord.models.comments')) %>
+</p>
+  <% if comments.any? %>
+    <ul>
+      <% comments.each do |comment| %>
+        <% if comment.present? %>
+          <li>
+            <p>
+            <% if User.find_by(id: comment.user_id).name.present? %>
+              <%= User.find_by(id: comment.user_id).name %>
+            <% else %>
+              <%= User.find_by(id: comment.user_id).email %>
+            <% end %>
+            <%= l comment.created_at %>
+            </p>
+            <%= comment.content %>
+            <% if current_user.id == comment.user_id %>
+              <%= button_to t('views.common.destroy', name: t('activerecord.models.comments')), polymorphic_path([commentable, comment]), method: :delete %>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    <%= t('views.common.nothing',  name: t('activerecord.models.comments')) %>
+  <% end %>
+</div>

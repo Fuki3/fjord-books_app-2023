@@ -9,3 +9,9 @@
   <%= button_to t('views.common.destroy', name: t('activerecord.models.reports')), @report, method: :delete %>
   <% end %>
 </div>
+
+<p>
+  <%= render 'comments/form', commentable: @report, comment: @comment %>
+</p>
+
+<%= render 'comments/comments', comments: @comments, commentable: @report %>
