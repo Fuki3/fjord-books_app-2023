@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
 
@@ -7,7 +9,10 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1 or /reports/1.json
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @report.comments
+  end
 
   # GET /reports/new
   def new
@@ -33,28 +38,28 @@ class ReportsController < ApplicationController
 
   # PATCH/PUT /reports/1 or /reports/1.json
   def update
-    if current_user.id == @report.user_id
-      respond_to do |format|
-        if @report.update(report_params)
-          format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: t('activerecord.models.reports')) }
-          format.json { render :show, status: :ok, location: @report }
-        else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @report.errors, status: :unprocessable_entity }
-        end
+    return unless current_user.id == @report.user_id
+
+    respond_to do |format|
+      if @report.update(report_params)
+        format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: t('activerecord.models.reports')) }
+        format.json { render :show, status: :ok, location: @report }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /reports/1 or /reports/1.json
   def destroy
-    if current_user.id == @report.user_id
-      @report.destroy
+    return unless current_user.id == @report.user_id
 
-      respond_to do |format|
-        format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: t('activerecord.models.reports')) }
-        format.json { head :no_content }
-      end
+    @report.destroy
+
+    respond_to do |format|
+      format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: t('activerecord.models.reports')) }
+      format.json { head :no_content }
     end
   end
 
