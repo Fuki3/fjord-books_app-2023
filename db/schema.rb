@@ -60,11 +60,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_08_144323) do
   end
 
   create_table "reports", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
