@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    return unless current_user.id == @comment.user_id
+    return if current_user.id != @comment.user_id
 
     @comment.destroy
 
