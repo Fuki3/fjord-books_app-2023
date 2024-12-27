@@ -1,7 +1,7 @@
 <%= form_with model: [report] do |form| %>
   <% if report.errors.any? %>
     <div style="color: red">
-      <h2><%= t('views.common.validation_error', errors: i18n_error_count(report.errors.count), name: t('activerecord.models.reports')) %> :</h2>
+      <h2><%= t('views.common.validation_error', errors: i18n_error_count(report.errors.count), name: Report.model_name.human) %> :</h2>
 
       <ul>
         <% report.errors.each do |error| %>
@@ -12,12 +12,12 @@
   <% end %>
 
   <div>
-    <%= form.label t('activerecord.attributes.reports.title'), style: "display: block" %>
+    <%= form.label Report.human_attribute_name(:title), style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= form.label t('activerecord.attributes.reports.memo'), style: "display: block" %>
+    <%= form.label Report.human_attribute_name(:memo), style: "display: block" %>
     <%= form.text_area :memo %>
   </div>
 

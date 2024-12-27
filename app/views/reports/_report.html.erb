@@ -1,22 +1,22 @@
 <div id="<%= dom_id report %>">
 
   <p>
-    <strong><%= t 'activerecord.attributes.reports.name' %>:</strong>
+    <strong><%= Report.human_attribute_name(:name) %>:</strong>
     <%= report.user.name %>
   </p>
 
   <p>
-    <strong><%= t 'activerecord.attributes.reports.date' %>:</strong>
+    <strong><%= Report.human_attribute_name(:date) %>:</strong>
     <%= l report.created_at %>
   </p>
 
   <p>
-    <strong><%= t 'activerecord.attributes.reports.title' %>:</strong>
+    <strong><%= Report.human_attribute_name(:title) %>:</strong>
     <%= report.title %>
   </p>
 
   <p>
-    <strong><%= t 'activerecord.attributes.reports.memo' %>:</strong>
+    <strong><%= Report.human_attribute_name(:memo) %>:</strong>
     <%= report.memo %>
   </p>
 

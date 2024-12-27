@@ -1,10 +1,10 @@
-<h1><%= t('views.common.title_edit', name: t('activerecord.models.reports')) %></h1>
+<h1><%= t('views.common.title_edit', name: Report.model_name.human) %></h1>
 
 <%= render "form", report: @report %>
 
 <br>
 
 <div>
-  <%= link_to t('views.common.show', name: t('activerecord.models.reports')), @reports %> |
-  <%= link_to t('views.common.back', name: t('activerecord.models.reports')), reports_path %>
+  <%= link_to t('views.common.show', name: Report.model_name.human), @reports %> |
+  <%= link_to t('views.common.back', name: Report.model_name.human), reports_path %>
 </div>

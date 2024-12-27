@@ -1,6 +1,6 @@
 <div class="comments-container">
 <p>
-<%= t(('views.common.title_index'), name: t('activerecord.models.comments')) %>
+<%= t(('views.common.title_index'), name: Comment.model_name.human) %>
 </p>
   <% if comments.any? %>
     <ul>
@@ -17,13 +17,13 @@
             </p>
             <%= comment.content %>
             <% if current_user.id == comment.user_id %>
-              <%= button_to t('views.common.destroy', name: t('activerecord.models.comments')), polymorphic_path([commentable, comment]), method: :delete %>
+              <%= button_to t('views.common.destroy', name: Comment.model_name.human), polymorphic_path([commentable, comment]), method: :delete %>
             <% end %>
           </li>
         <% end %>
       <% end %>
     </ul>
   <% else %>
-    <%= t('views.common.nothing',  name: t('activerecord.models.comments')) %>
+    <%= t('views.common.nothing',  name: Comment.model_name.human) %>
   <% end %>
 </div>

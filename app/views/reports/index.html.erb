@@ -1,12 +1,12 @@
-<h1><%= t 'activerecord.models.reports' %></h1>
+<h1><%= Report.model_name.human %></h1>
 
 <div id="reports">
   <% @reports.each do |report| %>
     <%= render report %>
     <p>
-      <%= link_to t('views.common.show', name: t('activerecord.models.reports')), report %>
+      <%= link_to t('views.common.show', name: Report.model_name.human), report %>
     </p>
   <% end %>
 </div>
 
-<%= link_to t('views.common.new', name: t('activerecord.models.reports')), new_report_path %>
+<%= link_to t('views.common.new', name: Report.model_name.human), new_report_path %>
