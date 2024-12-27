@@ -34,7 +34,7 @@ class ReportsController < ApplicationController
 
   # PATCH/PUT /reports/1
   def update
-    return unless current_user.id == @report.user_id
+    return if current_user.id != @report.user_id
       if @report.update(report_params)
         redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: t('activerecord.models.reports'))
       else
@@ -44,7 +44,7 @@ class ReportsController < ApplicationController
 
   # DELETE /reports/1
   def destroy
-    return unless current_user.id == @report.user_id
+    return if current_user.id != @report.user_id
     @report.destroy
     redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: t('activerecord.models.reports'))
   end
