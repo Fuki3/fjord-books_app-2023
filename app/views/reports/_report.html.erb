@@ -2,7 +2,7 @@
 
   <p>
     <strong><%= t 'activerecord.attributes.reports.name' %>:</strong>
-    <%= User.find_by(id: report.user_id).name %>
+    <%= report.user.name %>
   </p>
 
   <p>

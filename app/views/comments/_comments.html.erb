@@ -8,10 +8,10 @@
         <% if comment.present? %>
           <li>
             <p>
-            <% if User.find_by(id: comment.user_id).name.present? %>
-              <%= User.find_by(id: comment.user_id).name %>
+            <% if comment.user.name.present? %>
+              <%= comment.user.name %>
             <% else %>
-              <%= User.find_by(id: comment.user_id).email %>
+              <%= comment.user.email %>
             <% end %>
             <%= l comment.created_at %>
             </p>
