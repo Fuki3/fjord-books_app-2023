@@ -1,0 +1,17 @@
+<%= render @report %>
+
+<div>
+  <% if current_user.id == @report.user_id %>
+  <%= link_to t('views.common.edit', name: Report.model_name.human), edit_report_path(@report) %> |
+  <% end %>
+  <%= link_to t('views.common.back', name: Report.model_name.human), reports_path %>
+  <% if current_user.id == @report.user_id %>
+  <%= button_to t('views.common.destroy', name: Report.model_name.human), @report, method: :delete %>
+  <% end %>
+</div>
+
+<p>
+  <%= render 'comments/form', commentable: @report, comment: @comment %>
+</p>
+
+<%= render 'comments/comments', comments: @comments, commentable: @report %>

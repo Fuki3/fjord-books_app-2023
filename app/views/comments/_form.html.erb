@@ -1,0 +1,4 @@
+<%= form_with model: [commentable, comment] do |f| %>
+  <%= f.text_field :content %>
+  <%= f.button Comment.model_name.human %>
+<% end %>
