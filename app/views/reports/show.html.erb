@@ -16,3 +16,13 @@
     <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
   <% end %>
 </nav>
+
+<% @report.mentioned_reports&.each do |report| %>
+  <% mentioning_user_id = User.find(report.user_id) %>
+  <div style="display: flex; gap: 20px;">
+    <span><%= link_to mentioning_user_id.name, user_path(mentioning_user_id) %></span>
+    <%= "さんから" %>
+    <span><%= link_to report.title, report_path(report.id) %></span>
+    <%= "で言及されています。" %>
+  </div>
+<% end %>
