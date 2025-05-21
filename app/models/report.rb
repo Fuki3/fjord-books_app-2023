@@ -15,6 +15,10 @@ class Report < ApplicationRecord
     user == target_user
   end
 
+  def extract_mentioned_url(text)
+    text.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i)
+  end
+
   def created_on
     created_at.to_date
   end
