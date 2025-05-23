@@ -18,9 +18,8 @@
 </nav>
 
 <% @report.mentioned_reports&.each do |report| %>
-  <% mentioning_user_id = User.find(report.user_id) %>
   <div style="display: flex; gap: 20px;">
-    <span><%= link_to mentioning_user_id.name, user_path(mentioning_user_id) %></span>
+    <span><%= link_to report.user.name, user_path(report.user) %></span>
     <%= "さんから" %>
     <span><%= link_to report.title, report_path(report.id) %></span>
     <%= "で言及されています。" %>
