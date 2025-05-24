@@ -18,7 +18,7 @@
 </nav>
 
 <% @report.mentioned_reports&.each do |report| %>
-  <div style="display: flex; gap: 20px;">
+  <div class="flex-gap">
     <span><%= link_to report.user.name, user_path(report.user) %></span>
     <%= "さんから" %>
     <span><%= link_to report.title, report_path(report.id) %></span>

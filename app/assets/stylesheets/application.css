@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.flex-gap {
+  display: flex;
+  gap: 10px;
+}
