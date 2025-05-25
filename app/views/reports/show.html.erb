@@ -10,18 +10,26 @@
   <% if @report.editable?(current_user) %>
     <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_path(@report) %> |
   <% end %>
+</nav>
+
+  <% @report.mentioned_reports&.each_with_index do |report, index| %>
+    <% if index == 0 %>
+    <div class="title">
+      <%= "この日報は以下の日報から言及されています。" %>
+    </div>
+    <% end %>
+    <div class="flex-gap">
+      <span><%= link_to report.user.name, user_path(report.user) %></span>
+      <%= "さんの" %>
+      <span><%= link_to report.title, report_path(report.id) %></span>
+      <%= "から言及" %>
+    </div>
+  <% end %>
+
+<nav class="page-nav">
   <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
 
   <% if @report.editable?(current_user) %>
     <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
   <% end %>
 </nav>
-
-<% @report.mentioned_reports&.each do |report| %>
-  <div class="flex-gap">
-    <span><%= link_to report.user.name, user_path(report.user) %></span>
-    <%= "さんから" %>
-    <span><%= link_to report.title, report_path(report.id) %></span>
-    <%= "で言及されています。" %>
-  </div>
-<% end %>
