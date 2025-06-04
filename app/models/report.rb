@@ -15,7 +15,7 @@ class Report < ApplicationRecord
     user == target_user
   end
 
-  def extract_mentioned_url(text)
+  def mentioned_reports_id(text)
     text.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i)
   end
 
