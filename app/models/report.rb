@@ -24,7 +24,7 @@ class Report < ApplicationRecord
   end
 
   def mention(other_report_id)
-    active_relationships.create!(mentioned_id: other_report_id)
+    active_relationships.new(mentioned_id: other_report_id).save!
   end
 
   def unmention(other_report_id)
