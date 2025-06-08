@@ -13,18 +13,18 @@
 </nav>
 
   <% @report.mentioned_reports&.each_with_index do |report, index| %>
-    <% if index == 0 %>
+  <% if index == 0 %>
     <div class="title">
       <%= "この日報は以下の日報から言及されています。" %>
     </div>
-    <% end %>
-    <div class="flex-gap">
-      <span><%= link_to report.user.name, user_path(report.user) %></span>
-      <%= "さんの" %>
-      <span><%= link_to report.title, report_path(report.id) %></span>
-      <%= "から言及" %>
-    </div>
   <% end %>
+  <div class="flex-gap">
+    <span><%= link_to report.user.name, user_path(report.user) %></span>
+    <%= "さんの" %>
+    <span><%= link_to report.title, report_path(report.id) %></span>
+    <%= "から言及" %>
+  </div>
+<% end %>
 
 <nav class="page-nav">
   <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
