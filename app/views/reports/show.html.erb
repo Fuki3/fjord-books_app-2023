@@ -12,7 +12,7 @@
   <% end %>
 </nav>
 
-  <% @report.mentioned_reports&.each_with_index do |report, index| %>
+  <% @report.mentioned_reports.each_with_index do |report, index| %>
   <% if index == 0 %>
     <div class="title">
       <%= "この日報は以下の日報から言及されています。" %>
