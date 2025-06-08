@@ -20,29 +20,35 @@ class ReportsController < ApplicationController
 
   def create
     @report = current_user.reports.new(report_params)
-    other_reports_id = @report.mentioned_reports_id(@report.content)
-    if @report.save
-      other_reports_id.uniq.each { |id| @report.mention(id) }
+    begin
+      ActiveRecord::Base.transaction do
+        other_reports_id = @report.mentioned_reports_id(@report.content)
+        @report.save!
+        other_reports_id.uniq.each { |id| @report.mention(id) }
+      end
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
-    else
+    rescue StandardError
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    if @report.update(report_params)
+    ActiveRecord::Base.transaction do
+      @report.update!(report_params)
       @report.mentioning_reports.pluck(:id).each { |id| @report.unmention(id) }
       @report.mentioned_reports_id(@report.content).uniq.each { |id| @report.mention(id) }
-      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
-    else
-      render :edit, status: :unprocessable_entity
     end
+    redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+  rescue StandardError
+    render :edit, status: :unprocessable_entity
   end
 
   def destroy
-    @report.mentioning_reports.each { |id| @report.unmention(id) }
-    @report.mentioned_reports.each { |report| report.unmention(@report.id) }
-    @report.destroy
+    ActiveRecord::Base.transaction do
+      @report.mentioning_reports.each { |id| @report.unmention(id) }
+      @report.mentioned_reports.each { |report| report.unmention(@report.id) }
+      @report.destroy
+    end
     redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
