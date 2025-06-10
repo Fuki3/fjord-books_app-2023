@@ -18,13 +18,13 @@
     </div>
   <% end %>
   <% @report.mentioned_reports.order(:id).each_with_index do |report, index| %>
-  <div class="flex-gap">
-    <%= link_to report.user.name, user_path(report.user) %>
-    <%= t('reports.mention.title') %>
-    <%= link_to report.title, report_path(report.id) %>
-    <%= t('reports.mention.mentioning') %>
-  </div>
-<% end %>
+    <div class="flex-gap">
+      <%= link_to report.user.name, user_path(report.user) %>
+      <%= t('reports.mention.title') %>
+      <%= link_to report.title, report_path(report.id) %>
+      <%= t('reports.mention.mentioning') %>
+    </div>
+  <% end %>
 
 <nav class="page-nav">
   <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
