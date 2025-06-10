@@ -12,12 +12,12 @@
   <% end %>
 </nav>
 
-  <% @report.mentioned_reports.order(:id).each_with_index do |report, index| %>
-  <% if index == 0 %>
+  <% if @report.mentioned_reports.exists? %>
     <div class="title">
       <%= "この日報は以下の日報から言及されています。" %>
     </div>
   <% end %>
+  <% @report.mentioned_reports.order(:id).each_with_index do |report, index| %>
   <div class="flex-gap">
     <span><%= link_to report.user.name, user_path(report.user) %></span>
     <%= "さんの" %>
