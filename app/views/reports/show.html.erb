@@ -14,15 +14,15 @@
 
   <% if @report.mentioned_reports.exists? %>
     <div class="title">
-      <%= "この日報は以下の日報から言及されています。" %>
+      <%= t('reports.mention.mentioned_by') %>
     </div>
   <% end %>
   <% @report.mentioned_reports.order(:id).each_with_index do |report, index| %>
   <div class="flex-gap">
     <span><%= link_to report.user.name, user_path(report.user) %></span>
-    <%= "さんの" %>
+    <%= t('reports.mention.title') %>
     <span><%= link_to report.title, report_path(report.id) %></span>
-    <%= "から言及" %>
+    <%= t('reports.mention.mentioning') %>
   </div>
 <% end %>
 
