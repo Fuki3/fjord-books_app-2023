@@ -222,7 +222,8 @@ ja:
       edit:
         title: "アカウント編集"
   reports:
-    mention:
-      mentioned_by: この日報は以下の日報から言及されています。
-      title: さんの
-      mentioning: から言及
+    show:
+      mention:
+        mentioned_by: この日報は以下の日報から言及されています。
+        title: さんの
+        mentioning: から言及

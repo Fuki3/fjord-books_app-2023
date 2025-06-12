@@ -14,15 +14,15 @@
 
   <% if @report.mentioned_reports.exists? %>
     <div class="title">
-      <%= t('reports.mention.mentioned_by') %>
+      <%= t('reports.show.mention.mentioned_by') %>
     </div>
   <% end %>
   <% @report.mentioned_reports.order(:id).each_with_index do |report, index| %>
     <div class="flex-gap">
       <%= link_to report.user.name, user_path(report.user) %>
-      <%= t('reports.mention.title') %>
+      <%= t('reports.show.mention.title') %>
       <%= link_to report.title, report_path(report.id) %>
-      <%= t('reports.mention.mentioning') %>
+      <%= t('reports.show.mention.mentioning') %>
     </div>
   <% end %>
 
