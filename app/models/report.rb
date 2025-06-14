@@ -11,6 +11,10 @@ class Report < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
+  after_create :save_new_mentions
+  after_update :update_mentions
+  after_destroy :delete_mentions
+
   def editable?(target_user)
     user == target_user
   end
@@ -29,5 +33,20 @@ class Report < ApplicationRecord
 
   def unmention(other_report_id)
     active_relationships.find_by(mentioned_id: other_report_id).destroy!
+  end
+
+  def save_new_mentions
+    other_reports_id = mentioned_reports_id(content)
+    other_reports_id.uniq.each { |id| mention(id) }
+  end
+
+  def update_mentions
+    mentioning_reports.pluck(:id).each { |id| unmention(id) }
+    mentioned_reports_id(content).uniq.each { |id| mention(id) }
+  end
+
+  def delete_mentions
+    mentioning_reports.each { |id| unmention(id) }
+    mentioned_reports.each { |report| report.unmention(self.id) }
   end
 end
