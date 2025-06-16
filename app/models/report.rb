@@ -19,12 +19,14 @@ class Report < ApplicationRecord
     user == target_user
   end
 
-  def mentioned_reports_id(text)
-    text.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i)
-  end
-
   def created_on
     created_at.to_date
+  end
+
+  private
+
+  def mentioned_reports_id(text)
+    text.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i)
   end
 
   def mention(other_report_id)
