@@ -25,7 +25,7 @@ class Report < ApplicationRecord
 
   private
 
-  def mentioned_reports_id(text)
+  def mentioned_report_ids(text)
     text.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i)
   end
 
@@ -38,13 +38,13 @@ class Report < ApplicationRecord
   end
 
   def save_new_mentions
-    other_reports_id = mentioned_reports_id(content)
-    other_reports_id.uniq.each { |id| mention(id) }
+    other_report_ids = mentioned_report_ids(content)
+    other_report_ids.uniq.each { |id| mention(id) }
   end
 
   def update_mentions
     mentioning_reports.pluck(:id).each { |id| unmention(id) }
-    mentioned_reports_id(content).uniq.each { |id| mention(id) }
+    mentioned_report_ids(content).uniq.each { |id| mention(id) }
   end
 
   def delete_mentions
