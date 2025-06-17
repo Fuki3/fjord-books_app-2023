@@ -23,8 +23,7 @@ class Report < ApplicationRecord
   end
 
   def delete_mentions
-    mentioning_reports.each { |id| unmention(id) }
-    mentioned_reports.each { |report| report.unmention(self.id) }
+    active_relationships.destroy_all
   end
 
   private
@@ -47,7 +46,7 @@ class Report < ApplicationRecord
   end
 
   def update_mentions
-    mentioning_reports.pluck(:id).each { |id| unmention(id) }
+    active_relationships.destroy_all
     mentioned_report_ids.uniq.each { |id| mention(id) }
   end
 end
