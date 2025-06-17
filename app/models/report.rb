@@ -12,7 +12,7 @@ class Report < ApplicationRecord
   validates :content, presence: true
 
   after_create :save_mentions
-  after_update :save_mentions
+  after_update :delete_mentions, :save_mentions
 
   def editable?(target_user)
     user == target_user
@@ -41,7 +41,6 @@ class Report < ApplicationRecord
   end
 
   def save_mentions
-    active_relationships.destroy_all
     mentioned_report_ids.uniq.each { |id| mention(id) }
   end
 end
