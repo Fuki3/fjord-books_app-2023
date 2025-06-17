@@ -36,6 +36,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
+    @report.delete_mentions
     @report.destroy
     redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end

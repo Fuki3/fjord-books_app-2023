@@ -13,7 +13,6 @@ class Report < ApplicationRecord
 
   after_create :save_new_mentions
   after_update :update_mentions
-  after_destroy :delete_mentions
 
   def editable?(target_user)
     user == target_user
@@ -21,6 +20,11 @@ class Report < ApplicationRecord
 
   def created_on
     created_at.to_date
+  end
+
+  def delete_mentions
+    mentioning_reports.each { |id| unmention(id) }
+    mentioned_reports.each { |report| report.unmention(self.id) }
   end
 
   private
@@ -45,10 +49,5 @@ class Report < ApplicationRecord
   def update_mentions
     mentioning_reports.pluck(:id).each { |id| unmention(id) }
     mentioned_report_ids.uniq.each { |id| mention(id) }
-  end
-
-  def delete_mentions
-    mentioning_reports.each { |id| unmention(id) }
-    mentioned_reports.each { |report| report.unmention(self.id) }
   end
 end
