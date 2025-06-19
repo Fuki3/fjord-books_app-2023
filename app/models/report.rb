@@ -32,10 +32,6 @@ class Report < ApplicationRecord
     active_relationships.new(mentioned_id: other_report_id).save!
   end
 
-  def unmention(other_report_id)
-    active_relationships.find_by(mentioned_id: other_report_id).destroy!
-  end
-
   def save_mentions
     mentioned_report_ids.uniq.each { |id| mention(id) }
   end
