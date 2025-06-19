@@ -22,10 +22,6 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def delete_mentions
-    active_relationships.destroy_all
-  end
-
   private
 
   def mentioned_report_ids
@@ -42,5 +38,9 @@ class Report < ApplicationRecord
 
   def save_mentions
     mentioned_report_ids.uniq.each { |id| mention(id) }
+  end
+
+  def delete_mentions
+    active_relationships.destroy_all
   end
 end
