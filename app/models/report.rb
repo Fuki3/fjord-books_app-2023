@@ -24,16 +24,9 @@ class Report < ApplicationRecord
 
   private
 
-  def mentioned_report_ids
-    content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i)
-  end
-
-  def mention(other_report_id)
-    active_relationships.new(mentioned_id: other_report_id).save!
-  end
-
   def save_mentions
-    mentioned_report_ids.uniq.each { |id| mention(id) }
+    mentioned_report_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i)
+    mentioned_report_ids.uniq.each { |id| active_relationships.new(mentioned_id: id).save! }
   end
 
   def delete_mentions
