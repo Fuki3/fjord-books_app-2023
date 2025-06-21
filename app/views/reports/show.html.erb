@@ -15,7 +15,7 @@
   <div class="flex-gap">
     <%= link_to report.user.name, user_path(report.user) %>
     <%= t('reports.show.mention.title') %>
-    <%= link_to report.title, report_path(report.id) %>
+    <%= link_to report.title, report_path(report) %>
     <%= t('reports.show.mention.mentioning') %>
   </div>
 <% end %>
