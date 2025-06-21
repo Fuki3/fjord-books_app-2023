@@ -225,5 +225,4 @@ ja:
     show:
       mention:
         mentioned_by: この日報は以下の日報から言及されています。
-        title: さんの
-        mentioning: から言及
+        mentioning_report_info: "%{name}さんの%{report}から言及"
