@@ -26,7 +26,7 @@ class Report < ApplicationRecord
 
   def save_mentions
     ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i)
-    ids.uniq.each { |id| active_relationships.new(mentioned_id: id).save! }
+    ids.uniq.each { |id| active_relationships.create!(mentioned_id: id) }
   end
 
   def delete_mentions
