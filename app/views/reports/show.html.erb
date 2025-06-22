@@ -13,7 +13,7 @@
 <% end %>
 <% @report.mentioned_reports.order(:id).each do |report| %>
   <div class="flex-gap">
-    <%= t('reports.show.mention.mentioning_report_info_html', name: link_to(report.user.name, user_path(report.user)), report: link_to(report.title, report_path(report))) %>
+    <%= t('reports.show.mention.mentioning_html', name: link_to(report.user.name, user_path(report.user)), report: link_to(report.title, report_path(report))) %>
   </div>
 <% end %>
 

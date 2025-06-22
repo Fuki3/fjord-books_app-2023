@@ -225,4 +225,4 @@ ja:
     show:
       mention:
         mentioned_by: この日報は以下の日報から言及されています。
-        mentioning_report_info_html: "%{name}さんの%{report}から言及"
+        mentioning_html: "%{name}さんの%{report}から言及"
