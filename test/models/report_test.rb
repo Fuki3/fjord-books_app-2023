@@ -10,7 +10,9 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test '#created_on' do
-    report = reports(:one)
-    assert_equal report.created_at.to_date, report.created_on
+    travel_to Time.zone.local(2025, 9, 5, 10, 0, 0)
+    report = Report.create!(user: users(:alice), title: 'MyString', content: 'MyText')
+    assert_equal Time.zone.local(2025, 9, 5, 10, 0, 0).to_date, report.created_on
+    travel_back
   end
 end
