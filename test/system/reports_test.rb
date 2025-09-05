@@ -27,6 +27,8 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '登録する'
 
     assert_text '日報が作成されました。'
+    assert_text @report.content
+    assert_text @report.title
     click_on '戻る'
   end
 
