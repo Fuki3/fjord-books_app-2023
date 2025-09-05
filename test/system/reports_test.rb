@@ -41,6 +41,8 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '更新する'
 
     assert_text '日報が更新されました。'
+    assert_text @report.content
+    assert_text @report.title
     click_on '戻る'
   end
 
