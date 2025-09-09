@@ -15,4 +15,13 @@ class ReportTest < ActiveSupport::TestCase
     assert_equal Time.zone.local(2025, 9, 5, 10, 0, 0).to_date, report.created_on
     travel_back
   end
+
+  test '#save_mentions' do
+    report = reports(:one)
+    other_report = Report.create!(user: users(:alice), title: 'MyString', content: '参考になりました！')
+    assert_not_includes other_report.mentioning_reports, report
+    other_report.update!(content: "http://localhost:3000/reports/#{report.id}とhttp://localhost:3000/reports/#{other_report.id}が参考になりました！")
+    assert_includes other_report.mentioning_reports, report
+    assert_not_includes other_report.mentioning_reports, other_report
+  end
 end
