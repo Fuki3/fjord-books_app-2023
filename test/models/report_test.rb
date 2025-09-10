@@ -10,10 +10,10 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test '#created_on' do
-    travel_to Time.zone.local(2025, 9, 5, 10, 0, 0)
-    report = Report.create!(user: users(:alice), title: 'MyString', content: 'MyText')
-    assert_equal Time.zone.local(2025, 9, 5, 10, 0, 0).to_date, report.created_on
-    travel_back
+    travel_to Time.zone.local(2025, 9, 5, 10, 0, 0) do
+      report = Report.create!(user: users(:alice), title: 'MyString', content: 'MyText')
+      assert_equal Time.zone.local(2025, 9, 5, 10, 0, 0).to_date, report.created_on
+    end
   end
 
   test '#save_mentions' do
