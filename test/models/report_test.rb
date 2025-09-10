@@ -23,5 +23,9 @@ class ReportTest < ActiveSupport::TestCase
     other_report.update!(content: "http://localhost:3000/reports/#{report.id}とhttp://localhost:3000/reports/#{other_report.id}が参考になりました！")
     assert_includes other_report.mentioning_reports, report
     assert_not_includes other_report.mentioning_reports, other_report
+    other_report.update!(content: "aliceさんのhttp://localhost:3000/reports/#{report.id}の日報は参考になります！")
+    assert_includes other_report.mentioning_reports.reload, report
+    other_report.update!(content: 'aliceさんの日報は参考になります！')
+    assert_not_includes other_report.mentioning_reports.reload, report
   end
 end
